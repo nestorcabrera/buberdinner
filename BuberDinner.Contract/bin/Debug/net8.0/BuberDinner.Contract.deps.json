@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "BuberDinner.Contract/1.0.0": {
+        "runtime": {
+          "BuberDinner.Contract.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BuberDinner.Contract/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
