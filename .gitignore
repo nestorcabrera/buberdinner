@@ -1,0 +1,94 @@
+# Compiled files
+bin/
+obj/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# Build results
+*.dll
+*.exe
+*.app
+*.log
+*.vsix
+*.pdb
+*.cache
+*.msi
+*.zip
+*.tar.gz
+*.tmp
+
+# User-specific files
+*.rsuser
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.swp
+
+# VS Code settings
+.vscode/
+
+# Rider settings
+.idea/
+
+# Visual Studio specific
+.vs/
+.vscode/
+.launchsettings.json
+
+# Logs
+*.log
+Logs/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Lock files
+project.lock.json
+project.fragment.lock.json
+*.lock.json
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+*.bak
+*.old
+*.backup
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Coverage Reports
+coverage/
+
+# Publish directory
+publish/
+wwwroot/
+
+# Other configuration
+appsettings.Development.json
+appsettings.*.json
+appsettings.local.json
+secrets.json
+
+# Ignore Test Results
+TestResults/
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Database files
+*.mdf
+*.ldf
+*.ndf
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
