@@ -1,3 +1,4 @@
+using BuberDinner.Api.Filters;
 using BuberDinner.Application.Services.Authetication;
 using BuberDinner.Contract.Authentication;
 using Microsoft.AspNetCore.Mvc;
