@@ -1,4 +1,5 @@
 dotnet new sln name
+dotner new webapi
 dotnet add *Project reference *Project2
 dotnet add *Project package package.package
 dotnet buil

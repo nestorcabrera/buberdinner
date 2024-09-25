@@ -1,15 +1,16 @@
+using ErrorOr;
 namespace BuberDinner.Application.Services.Authetication;
 
 public interface IAuthenticationService
 {
-    AutheticationResult Login(
+    ErrorOr<AuthenticationResult> Login(
         string Email,
         string Password
     );
-    AutheticationResult Register(
-        string FirstName,
-        string LastName,
-        string Email,
-        string Password
-    );
+    ErrorOr<AuthenticationResult> Register(
+       string FirstName,
+       string LastName,
+       string Email,
+       string Password
+   );
 }
