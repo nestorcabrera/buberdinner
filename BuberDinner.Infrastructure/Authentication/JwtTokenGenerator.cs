@@ -1,7 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using BuberDinner.Application.Common.Interface.Authetication;
+using BuberDinner.Application.Common.Interface.Authentication;
 using BuberDinner.Application.Common.Interface.Services;
 using BuberDinner.Domain.Entities;
 using Microsoft.Extensions.Options;
