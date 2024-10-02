@@ -1,0 +1,23 @@
+@host= http://localhost:8080
+@hostId=dasd
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNjA0NzExNy1hNjdjLTRiMzEtYmY2MC02NGZjOWM1OWQ5NWUiLCJnaXZlbl9uYW1lIjpbIkFtaWNoYWkiLCJNYW50aWJhbmQiXSwianRpIjoiOTk0NjJhNGEtNmFlMi00ZmRkLWE0NjQtNThiZDZjMTdiMjNmIiwiZXhwIjoxNzI3OTA0MzY2LCJpc3MiOiJCdWJlckRpbm5lciIsImF1ZCI6IkJ1YmVyRGlubmVyIn0.xTPMs6-sABL0e-acbvMBUpwBf10s3J3dXrU70EdsHeM
+POST {{host}}/hosts/{{hostId}}/menus
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Yummy Menu",
+    "description": "A menu with yummy",
+    "sections": [
+        {
+            "name": "Appetizers",
+            "description": "Starters",
+            "items": [
+                {
+                    "name": "Fried Calamari",
+                    "description": "Fried squid"
+                }
+            ]
+        }
+    ]
+}
