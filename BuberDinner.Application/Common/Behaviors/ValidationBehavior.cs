@@ -1,7 +1,9 @@
-using MediatR;
+using ErrorOr;
+
 using FluentValidation;
 using FluentValidation.Results;
-using ErrorOr;
+
+using MediatR;
 
 namespace BuberDinner.Application.Common.Behaviors;
 

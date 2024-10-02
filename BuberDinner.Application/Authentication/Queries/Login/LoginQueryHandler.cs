@@ -3,7 +3,9 @@ using BuberDinner.Application.Common.Interface.Authentication;
 using BuberDinner.Application.Interface.Persistence;
 using BuberDinner.Domain.Common.Errors;
 using BuberDinner.Domain.Entities;
+
 using ErrorOr;
+
 using MediatR;
 
 namespace BuberDinner.Application.Authentication.Queries.Login;
@@ -18,6 +20,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
         _userRepository = userRepository;
         _jwtTokenGenerator = jwtTokenGenerator;
     }
+
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;

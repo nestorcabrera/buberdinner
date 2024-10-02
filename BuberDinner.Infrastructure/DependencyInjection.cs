@@ -1,10 +1,12 @@
 using System.Text;
+
 using BuberDinner.Application.Common.Interface.Authentication;
 using BuberDinner.Application.Common.Interface.Services;
 using BuberDinner.Application.Interface.Persistence;
 using BuberDinner.Infrastructure.Authentication;
 using BuberDinner.Infrastructure.Persistence;
 using BuberDinner.Infrastructure.Services;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,8 +37,7 @@ public static class DependencyInjection
         var jwtSettings = new JwtSettings();
         configuration.Bind(JwtSettings.SectionName, jwtSettings);
 
-        //services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
-
+        // services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
         services.AddSingleton(Options.Create(jwtSettings));
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 
@@ -50,11 +51,9 @@ public static class DependencyInjection
                 ValidIssuer = jwtSettings.Issuer,
                 ValidAudience = jwtSettings.Audience,
                 IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(jwtSettings.Secret)
-                )
+                    Encoding.UTF8.GetBytes(jwtSettings.Secret)),
             });
 
         return services;
     }
-
 }

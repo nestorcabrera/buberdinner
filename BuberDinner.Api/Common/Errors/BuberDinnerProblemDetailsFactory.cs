@@ -1,7 +1,10 @@
 using System.Diagnostics;
 using System.Net;
+
 using BuberDinner.Api.Common.Http;
+
 using ErrorOr;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -17,6 +20,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
     {
         _options = options?.Value ?? throw new ArgumentException(nameof(options));
     }
+
     public override ProblemDetails CreateProblemDetails(
         HttpContext httpContext,
         int? statusCode = null,
@@ -33,7 +37,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             Title = title,
             Type = type,
             Detail = detail,
-            Instance = instance
+            Instance = instance,
         };
 
         ApplyProblemDetailsDefaults(httpContext, problemDetails, statusCode.Value);
@@ -96,9 +100,8 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
 
         if (errors != null)
         {
-            //problemDetails.Extensions["errors"] = errors;
+            // problemDetails.Extensions["errors"] = errors;
             problemDetails.Extensions.Add("errorCodes", errors.Select(e => e.Code));
         }
-
     }
 }

@@ -1,5 +1,7 @@
 using BuberDinner.Api.Common.Http;
+
 using ErrorOr;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -27,7 +29,6 @@ public class ApiController : ControllerBase
         var firstError = errors[0];
 
         return Problem(firstError);
-
     }
 
     private ActionResult Problem(Error error)
@@ -51,8 +52,7 @@ public class ApiController : ControllerBase
         {
             modelStateDictionary.AddModelError(
                 error.Code,
-                error.Description
-            );
+                error.Description);
         }
 
         return ValidationProblem(modelStateDictionary);

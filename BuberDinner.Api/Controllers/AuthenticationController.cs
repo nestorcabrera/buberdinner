@@ -3,10 +3,15 @@ using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Authentication.Queries.Login;
 using BuberDinner.Contract.Authentication;
 using BuberDinner.Domain.Common.Errors;
+
 using ErrorOr;
+
 using Mapster;
+
 using MapsterMapper;
+
 using MediatR;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,9 +37,7 @@ public class AuthenticationController : ApiController
         ErrorOr<AuthenticationResult> authResult = await _sender.Send(command);
         return authResult.Match(
             authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
-            errors => Problem(errors)
-        );
-
+            errors => Problem(errors));
     }
 
     [HttpPost("login")]
@@ -48,13 +51,12 @@ public class AuthenticationController : ApiController
         {
             return Problem(
                 statusCode: StatusCodes.Status401Unauthorized,
-                title: authResult.FirstError.Description
-            );
+                title: authResult.FirstError.Description);
         }
+
         return authResult.Match(
             authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
-            errors => Problem(errors)
-        );
+            errors => Problem(errors));
     }
 
     private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)

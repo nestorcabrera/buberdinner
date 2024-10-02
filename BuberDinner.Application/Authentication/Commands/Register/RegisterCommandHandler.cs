@@ -3,7 +3,9 @@ using BuberDinner.Application.Common.Interface.Authentication;
 using BuberDinner.Application.Interface.Persistence;
 using BuberDinner.Domain.Common.Errors;
 using BuberDinner.Domain.Entities;
+
 using ErrorOr;
+
 using MediatR;
 
 namespace BuberDinner.Application.Authentication.Commands.Register;
@@ -32,7 +34,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             FirstName = command.FirstName,
             LastName = command.LastName,
             Email = command.Email,
-            Password = command.Password
+            Password = command.Password,
         };
 
         _userRepository.Add(user);

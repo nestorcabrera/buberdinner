@@ -8,6 +8,6 @@ public static partial class Errors
     {
         public static Error DuplicateEmail => Error.Conflict(
             code: "User.DuplicateEmail",
-             description: "Email is already in use.");
+            description: "Email is already in use.");
     }
 }

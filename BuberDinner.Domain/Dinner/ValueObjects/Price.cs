@@ -10,6 +10,7 @@ public sealed class Price : ValueObject
     {
         Value = value;
     }
+
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

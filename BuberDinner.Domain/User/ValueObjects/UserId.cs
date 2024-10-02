@@ -15,6 +15,7 @@ public sealed class UserId : ValueObject
     {
         return new(Guid.NewGuid());
     }
+
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
