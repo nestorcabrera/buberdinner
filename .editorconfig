@@ -406,4 +406,9 @@ dotnet_diagnostic.SA1200.severity = none
 #SA1000: The keyword 'new' should be followed by a space
 dotnet_diagnostic.SA1000.severity = none
 
+#SA1009: Closing parenthesis should be spaced correctly
+dotnet_diagnostic.SA1009.severity = none
+
+[*/Migrations/*]
+generated_code = true
 

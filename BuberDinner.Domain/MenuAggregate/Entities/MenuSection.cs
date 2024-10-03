@@ -33,4 +33,10 @@ public class MenuSection : Entity<MenuSectionId>
             description,
             items ?? new());
     }
+
+#pragma warning disable CS8618
+    private MenuSection()
+    {
+    }
+#pragma warning restore CS8618
 }

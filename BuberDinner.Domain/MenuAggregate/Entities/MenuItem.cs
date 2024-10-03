@@ -19,4 +19,10 @@ public class MenuItem : Entity<MenuItemId>
     {
         return new(MenuItemId.CreateUnique(), name, description);
     }
+
+#pragma warning disable CS8618
+    private MenuItem()
+    {
+    }
+#pragma warning restore CS8618
 }

@@ -13,7 +13,12 @@ public sealed class MenuSectionId : ValueObject
 
     public static MenuSectionId CreateUnique()
     {
-        return new(Guid.NewGuid());
+        return new MenuSectionId(Guid.NewGuid());
+    }
+
+    public static MenuSectionId Create(Guid value)
+    {
+        return new MenuSectionId(value);
     }
 
     public override IEnumerable<object> GetEqualityComponents()

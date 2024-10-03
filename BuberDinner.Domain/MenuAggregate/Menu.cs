@@ -17,7 +17,7 @@ public sealed class Menu : AggregateRoot<MenuId>
     public string Description { get; }
     public AverageRating IAverageRating { get; }
 
-    public IReadOnlyList<MenuSection> Setions => _sections.AsReadOnly();
+    public IReadOnlyList<MenuSection> Sections => _sections.AsReadOnly();
 
     public HostId HostId { get; }
 
@@ -63,4 +63,10 @@ public sealed class Menu : AggregateRoot<MenuId>
             DateTime.UtcNow,
             DateTime.UtcNow);
     }
+
+#pragma warning disable CS8618
+    private Menu()
+    {
+    }
+#pragma warning restore CS8618
 }
