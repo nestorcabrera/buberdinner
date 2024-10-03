@@ -1,3 +1,4 @@
+using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.HostAggregate.ValueObjects;
 using BuberDinner.Domain.MenuAggregate;
 using BuberDinner.Domain.MenuAggregate.Entities;
@@ -10,8 +11,17 @@ namespace BuberDinner.Application.Menus.Commands;
 
 public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, ErrorOr<Menu>>
 {
-    public Task<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
+    private readonly IMenuRepository _menuRepository;
+
+    public CreateMenuCommandHandler(IMenuRepository menuRepository)
     {
+        _menuRepository = menuRepository;
+    }
+
+    public async Task<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
+    {
+        await Task.CompletedTask;
+
         // Create the menu
         var menu = Menu.Create(
             hostId: HostId.Create(request.HostId),
@@ -22,10 +32,12 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
                 s.Description,
                 s.Items.ConvertAll(i => MenuItem.Create(
                     i.Name,
-                    i.Description)).ToList())).ToList());
+                    i.Description)))));
 
         // Persist the menu
+        _menuRepository.Add(menu);
+
         // Return the menu
-        return default!;
+        return menu;
     }
 }

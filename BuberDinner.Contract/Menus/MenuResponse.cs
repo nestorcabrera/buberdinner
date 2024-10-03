@@ -12,7 +12,7 @@ public record MenuResponse(
     DateTime CreatedDateTime,
     DateTime UpdatedDateTime);
 
-public record MenuSetionResponse(
+public record MenuSectionResponse(
     string Id,
     string Name,
     string Description,

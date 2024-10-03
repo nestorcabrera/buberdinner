@@ -15,7 +15,7 @@ public sealed class Menu : AggregateRoot<MenuId>
     private readonly List<MenuReviewId> _menuReviewIds = new();
     public string Name { get; }
     public string Description { get; }
-    public AverageRating AverageRating { get; }
+    public AverageRating IAverageRating { get; }
 
     public IReadOnlyList<MenuSection> Setions => _sections.AsReadOnly();
 
@@ -32,7 +32,7 @@ public sealed class Menu : AggregateRoot<MenuId>
         HostId hostId,
         string name,
         string description,
-        AverageRating averageRating,
+        AverageRating iAverageRating,
         List<MenuSection> sections,
         DateTime createdDateTime,
         DateTime updatedDateTime)
@@ -41,7 +41,7 @@ public sealed class Menu : AggregateRoot<MenuId>
         Name = name;
         Description = description;
         HostId = hostId;
-        AverageRating = averageRating;
+        IAverageRating = iAverageRating;
         _sections = sections;
         CreatedDateTime = createdDateTime;
         UpdatedDateTime = updatedDateTime;

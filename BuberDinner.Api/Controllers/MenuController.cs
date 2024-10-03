@@ -30,6 +30,8 @@ public class MenuController : ApiController
         var command = _mapper.Map<CreateMenuCommand>((request, hostId));
         var createMenuCommand = await _sender.Send(command);
 
-        return Ok(request);
+        return createMenuCommand.Match<IActionResult>(
+            menu => Ok(_mapper.Map<MenuResponse>(menu)),
+            errors => Problem(errors));
     }
 }
